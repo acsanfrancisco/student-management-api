@@ -153,7 +153,7 @@ http://localhost:8080/swagger-ui/index.html
 ## ⚙️ Como rodar o projeto
 
 ```bash
-git clone https://github.com/seu-usuario/student-management-api.git
+git clone https://github.com/acsanfrancisco/student-management-api.git
 cd student-management-api
 ./mvnw spring-boot:run
 ```
