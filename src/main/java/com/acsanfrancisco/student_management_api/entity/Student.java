@@ -2,11 +2,12 @@ package com.acsanfrancisco.student_management_api.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,8 +32,15 @@ public class Student implements Serializable {
     private String telephone;
     @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
-    @Column(name = "insertion_date", nullable = false)
+    @Column(name = "insertion_date")
     private LocalDateTime insertionDate;
     @Column(name = "update_date")
     private LocalDateTime updateDate;
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    private List<Enrollment> enrollments = new ArrayList<>();
+
+    public void addEnrollments(Enrollment enrollment){
+        enrollments.add(enrollment);
+        enrollment.setStudent(this);
+    }
 }

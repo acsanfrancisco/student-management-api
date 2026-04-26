@@ -7,14 +7,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class StudentResponseDto {
+public class ToListAllStudentsDto {
 
     private Long id;
     private String name;
@@ -22,6 +20,4 @@ public class StudentResponseDto {
     private LocalDate birthDate;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private LocalDateTime updateDate;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<EnrollmentResponseDto> enrollments = new ArrayList<>();
 }

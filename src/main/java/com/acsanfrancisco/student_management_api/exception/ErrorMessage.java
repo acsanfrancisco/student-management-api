@@ -3,13 +3,11 @@ package com.acsanfrancisco.student_management_api.exception;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +23,7 @@ public class ErrorMessage {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Map<String, String> errors;
 
-    public ErrorMessage(HttpServletRequest request, HttpStatus status, String message){
+    public ErrorMessage(HttpServletRequest request, HttpStatus status, String message) {
         this.path = request.getRequestURI();
         this.method = request.getMethod();
         this.status = status.value();
@@ -33,7 +31,7 @@ public class ErrorMessage {
         this.message = message;
     }
 
-    public ErrorMessage (HttpServletRequest request, HttpStatus status, String message, BindingResult result){
+    public ErrorMessage(HttpServletRequest request, HttpStatus status, String message, BindingResult result) {
         this.path = request.getRequestURI();
         this.method = request.getMethod();
         this.status = status.value();
@@ -44,7 +42,7 @@ public class ErrorMessage {
 
     private void addErrors(BindingResult result) {
         this.errors = new HashMap<>();
-        for(FieldError fieldError : result.getFieldErrors()){
+        for (FieldError fieldError : result.getFieldErrors()) {
             this.errors.put(fieldError.getField(), fieldError.getDefaultMessage());
         }
     }
