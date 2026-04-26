@@ -31,8 +31,11 @@ API REST para gerenciamento de alunos e suas matrículas, desenvolvida com **Jav
 
 ---
 
-📌 Endpoints
-Base URL
+## 📌 Endpoints
+
+### Base URL
+
+```bash
 /api/v1/students
 🔹 Criar aluno
 
